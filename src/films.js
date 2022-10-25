@@ -11,14 +11,26 @@ function getAllDirectors(array) {
 function getMoviesFromDirector(array, director) {
 
   const result = array.filter(movie => movie.director == director);
-  
-  console.log("EXERCICE 2 ->",result);
+
+  console.log("EXERCICE 2 ->", result);
   return result;
 }
 
 // Exercise 3: Calculate the average of the films of a given director.
 function moviesAverageOfDirector(array, director) {
 
+  const result = getMoviesFromDirector(array, director);
+
+  console.log("EXERCICE 3 ->", moviesAverage(result));
+  return moviesAverage(result);
+}
+
+//Contador media notas
+function moviesAverage(array){
+
+  const mediaNotas = array.reduce((contador, valor ) => contador + valor.score / array.length, 0);
+
+  return Number(mediaNotas.toFixed(2));
 }
 
 // Exercise 4:  Alphabetic order by title 
