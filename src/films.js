@@ -18,7 +18,7 @@ function getMoviesFromDirector(array, director) {
 
 // Exercise 3: Calculate the average of the films of a given director.
 function moviesAverageOfDirector(array, director) {
-
+  
   const result = getMoviesFromDirector(array, director);
 
   console.log("EXERCICE 3 ->", moviesAverage(result));
@@ -28,7 +28,8 @@ function moviesAverageOfDirector(array, director) {
 //Contador media notas
 function moviesAverage(array) {
 
-  const mediaNotas = array.reduce((contador, valor) => contador + valor.score / array.length, 0);
+  let notas = array.filter( nota => nota.score !== "");
+  const mediaNotas = array.reduce((contador, valor) => contador + valor.score / notas.length, 0);
 
   return Number(mediaNotas.toFixed(2));
 }
@@ -44,22 +45,27 @@ function orderAlphabetically(array) {
 
 // Exercise 5: Order by year, ascending
 function orderByYear(array) {
-  
+
   const ordenYear = [...array].sort((a, b) => {
-      if(a.year == b.year){
-        return a.title.localeCompare(b.title);
-      } else {
-        return a.year - b.year;
-      }
-    });
-    
-    console.log('EJERCICIO 5 ->', ordenYear);
-    return ordenYear;
+    if (a.year == b.year) {
+      return a.title.localeCompare(b.title);
+    } else {
+      return a.year - b.year;
+    }
+  });
+
+  console.log('EJERCICIO 5 ->', ordenYear);
+  return ordenYear;
 }
 
 // Exercise 6: Calculate the average of the movies in a category
-function moviesAverageByCategory() {
+function moviesAverageByCategory(array, categoria) {
 
+  const movieCategoria = array.filter(movies => movies.genre.includes(categoria));
+  // const notaCategoria = moviesAverage(movieCategoria);
+  
+  console.log('EJERCICIO 6 ->', moviesAverage(movieCategoria));
+  return moviesAverage(movieCategoria);
 }
 
 // Exercise 7: Modify the duration of movies to minutes
