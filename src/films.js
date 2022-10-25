@@ -26,9 +26,9 @@ function moviesAverageOfDirector(array, director) {
 }
 
 //Contador media notas
-function moviesAverage(array){
+function moviesAverage(array) {
 
-  const mediaNotas = array.reduce((contador, valor ) => contador + valor.score / array.length, 0);
+  const mediaNotas = array.reduce((contador, valor) => contador + valor.score / array.length, 0);
 
   return Number(mediaNotas.toFixed(2));
 }
@@ -36,6 +36,10 @@ function moviesAverage(array){
 // Exercise 4:  Alphabetic order by title 
 function orderAlphabetically(array) {
 
+  const  ordenAlfa = array.map( movie => movie.title).sort().slice(0,20);
+
+  console.log('EJERCICIO 4 ->', ordenAlfa)
+  return ordenAlfa;
 }
 
 // Exercise 5: Order by year, ascending
