@@ -36,15 +36,25 @@ function moviesAverage(array) {
 // Exercise 4:  Alphabetic order by title 
 function orderAlphabetically(array) {
 
-  const  ordenAlfa = array.map( movie => movie.title).sort().slice(0,20);
+  const ordenAlfa = array.map(movie => movie.title).sort().slice(0, 20);
 
   console.log('EJERCICIO 4 ->', ordenAlfa)
   return ordenAlfa;
 }
 
 // Exercise 5: Order by year, ascending
-function orderByYear() {
-
+function orderByYear(array) {
+  
+  const ordenYear = [...array].sort((a, b) => {
+      if(a.year == b.year){
+        return a.title.localeCompare(b.title);
+      } else {
+        return a.year - b.year;
+      }
+    });
+    
+    console.log('EJERCICIO 5 ->', ordenYear);
+    return ordenYear;
 }
 
 // Exercise 6: Calculate the average of the movies in a category
